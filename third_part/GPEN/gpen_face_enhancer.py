@@ -59,6 +59,7 @@ class FaceEnhancement(object):
         full_mask = np.zeros((height, width), dtype=np.float32)
         full_img = np.zeros(ori_img.shape, dtype=np.uint8)
 
+        mask_sharp = np.zeros((height, width), dtype=np.float32)
         for i, (faceb, facial5points) in enumerate(zip(facebs, landms)):
             if faceb[4]<self.threshold: continue
             fh, fw = (faceb[3]-faceb[1]), (faceb[2]-faceb[0])
